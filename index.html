@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>my-shop</title>
+        <style>
+            
+            
+             .center-text{
+            text-align: center;
+        }
+        </style>
+        <link rel="stylesheet" href="index.css">
+    </head>
+        <body>
+            <!-- Контейнер для уведомлений -->
+            <div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 1000;"></div>
+            <header>
+                <div> МойМагазин</div>
+                <div style="display: inline-block; margin-left: 20px;">
+                    <a href="craft.html" style="text-decoration: none; color: inherit;">
+                🛒 <span id="cart-count">0</span>
+                    </a>
+                </div>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">Каталог</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+            <h1 class="center-text">Добро пожаловать в наш магазин!</h1>
+            <!--- Карточки товаров -->
+            <div class="catalog">
+                <div class="product-card">
+                <h3>Апельсин</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/045/996/599/non_2x/a-ripe-orange-is-shown-on-a-transparent-background-free-png.png" alt="Товар">
+                <p>Цена: 100 ₽</p>
+                <button>Купить</button>
+                </div>
+                <div class="product-card">
+                <h3>Банан</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/012/909/733/non_2x/single-of-banana-free-png.png" alt="Банан">
+                <p>Цена: 80 ₽</p>
+                <button>Купить</button>
+                </div>
+                <div class="product-card">
+                <h3>Киви</h3>
+                <img src="https://img.freepik.com/premium-psd/kiwi-isolated-transparent-background_744381-1306.jpg?semt=ais_hybrid&w=740&q=80" alt="Киви">
+                <p>Цена: 120 ₽</p>
+                <button>Купить</button>
+                </div>
+                <div class="product-card">
+                <h3>Мандарины</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/053/756/361/non_2x/mandarin-orange-with-slice-and-leaf-on-transparent-background-free-png.png" alt="Товар">
+                <p>Цена: 200 ₽</p>
+                <button>Купить</button>
+                </div>
+                <div class="product-card">
+                <h3>Яблочный сок</h3>
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/045/933/184/small_2x/refreshing-apple-juice-and-slice-images-for-your-creative-projects-free-png.png" alt="Товар">
+                <p>Цена: 350 ₽</p>
+                <button>Купить</button>
+                </div>
+                <div class="product-card">
+                <h3>Апельсиновый сок</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/027/309/417/non_2x/orange-juice-with-ai-generated-free-png.png" alt="Товар">
+                <p>Цена: 450 ₽</p>
+                <button>Купить</button>
+                </div>
+            </div>
+        
+
+            <script src="script.js"></script>
+        </body>

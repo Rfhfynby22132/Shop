@@ -1,0 +1,178 @@
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.catalog {
+    display: flex;          /* включает гибкое расположение */
+    flex-wrap: wrap;       /* карточки переносятся на новую строку */
+    gap: 40px;              /* расстояние между карточками */
+    justify-content: center; /* центрируем по горизонтали */
+}
+
+body{
+    margin: 10px;
+    padding: 0;
+    background: linear-gradient(-45deg, #ff7e5f, #feb47b, #ff6b6b, #c06c84);
+    background-size: 100% 200%;
+    animation: gradientShift 10s ease infinite;
+}
+
+
+/* Стили для тост-уведомления */
+.toast {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-size: 14px;
+    animation: fadeInOut 2s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateX(50px); }
+    10% { opacity: 1; transform: translateX(0); }
+    90% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(50px); }
+}
+
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+
+     /* Выравниваем содержимое по вертикали */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+}
+
+.product-card p {
+    margin: 5px 0;
+}
+
+
+.product-card img {
+    width: 80%;            /* картинка растягивается по ширине карточки */
+    border-radius: 10px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+/* Эффект при клике */
+.button-clicked {
+    background-color: #0213ff !important;
+    transform: scale(0.95);
+    transition: all 0.1s ease;
+}
+
+#cart-count {
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+/* Дополнительные стили для корзины */
+        .cart-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+        .cart-item-info {
+            flex: 2;
+        }
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .cart-item-quantity button {
+            background-color: #007bff;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+        .cart-item-quantity span {
+            min-width: 30px;
+            text-align: center;
+        }
+        .cart-item-price {
+            width: 100px;
+            text-align: right;
+        }
+        .cart-item-remove {
+            background-color: #dc3545;
+            padding: 5px 10px;
+            font-size: 12px;
+            margin-left: 15px;
+        }
+        .cart-total {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #28a745;
+        }
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .btn-clear {
+            background-color: #6c757d;
+        }
+        .btn-checkout {
+            background-color: #28a745;
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+        .empty-cart {
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+            color: #666;
+        }
+        @media (max-width: 600px) {
+            .cart-item {
+                flex-wrap: wrap;
+            }
+            .cart-item-price {
+                width: auto;
+                margin-left: auto;
+            }
+        }

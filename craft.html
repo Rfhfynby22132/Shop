@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина - МойМагазин</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 1000;"></div>
+    <header>
+        <div>МойМагазин</div>
+        <div style="display: inline-block; margin-left: 20px;">
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                🏠 На главную
+            </a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="#">Каталог</a></li>
+            <li><a href="#">Контакты</a></li>
+        </ul>
+    </nav>
+    <h1 class="center-text">Ваша корзина</h1>
+
+    <div class="cart-container" id="cart-container">
+        <!-- Сюда будет загружаться содержимое корзины -->
+    </div>
+
+    <script>
+        function getCart() {
+            const cart = localStorage.getItem('cart');
+            return cart ? JSON.parse(cart) : [];
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerText = message;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 2000);
+        }
+
+        function renderCart() {
+            const cart = getCart();
+            const container = document.getElementById('cart-container');
+            if (cart.length === 0) {
+                container.innerHTML = '<div class="empty-cart">Корзина пуста. <a href="index.html">Перейти к покупкам</a></div>';
+                return;
+            }
+
+            let total = 0;
+            let html = '';
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                html += `
+                    <div class="cart-item" data-index="${index}">
+                        <div class="cart-item-info">
+                            <strong>${item.name}</strong><br>
+                            ${item.price} ₽ / шт.
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button class="decr" data-name="${item.name}">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="incr" data-name="${item.name}">+</button>
+                        </div>
+                        <div class="cart-item-price">
+                            ${itemTotal} ₽
+                        </div>
+                        <button class="cart-item-remove" data-name="${item.name}">✖ Удалить</button>
+                    </div>
+                `;
+            });
+            html += `
+                <div class="cart-total">
+                    Итого: ${total} ₽
+                </div>
+                <div class="cart-actions">
+                    <button class="btn-clear" id="clear-cart">Очистить корзину</button>
+                    <button class="btn-checkout" id="checkout">Оформить заказ</button>
+                </div>
+            `;
+            container.innerHTML = html;
+
+            // Добавляем обработчики событий
+            document.querySelectorAll('.incr').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const name = btn.getAttribute('data-name');
+                    changeQuantity(name, 1);
+                });
+            });
+            document.querySelectorAll('.decr').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const name = btn.getAttribute('data-name');
+                    changeQuantity(name, -1);
+                });
+            });
+            document.querySelectorAll('.cart-item-remove').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const name = btn.getAttribute('data-name');
+                    removeItem(name);
+                });
+            });
+            document.getElementById('clear-cart')?.addEventListener('click', clearCart);
+            document.getElementById('checkout')?.addEventListener('click', checkout);
+        }
+
+        function changeQuantity(name, delta) {
+            let cart = getCart();
+            const item = cart.find(i => i.name === name);
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.name !== name);
+                }
+                saveCart(cart);
+                renderCart();
+                updateMainPageCount(); // обновляем счётчик на главной, если она открыта
+            }
+        }
+
+        function removeItem(name) {
+            let cart = getCart();
+            cart = cart.filter(i => i.name !== name);
+            saveCart(cart);
+            renderCart();
+            updateMainPageCount();
+            showToast(`🗑 Товар удалён из корзины`);
+        }
+
+        function clearCart() {
+            if (confirm('Очистить всю корзину?')) {
+                saveCart([]);
+                renderCart();
+                updateMainPageCount();
+                showToast('Корзина очищена');
+            }
+        }
+
+        function checkout() {
+            const cart = getCart();
+            if (cart.length === 0) {
+                showToast('Корзина пуста, добавьте товары');
+                return;
+            }
+            alert('Спасибо за заказ! (Это демо, заказ не отправлен)');
+            // В реальном проекте здесь был бы отправка на сервер
+        }
+
+        function updateMainPageCount() {
+            // Если открыта главная страница в другой вкладке, обновим счётчик при возврате?
+            // Простой способ: при каждом изменении корзины записываем в localStorage событие,
+            // но для простоты оставим так. Главная страница обновит счётчик при перезагрузке.
+            // Можно хранить общее количество в отдельном ключе.
+            const cart = getCart();
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            localStorage.setItem('cartCount', totalItems);
+            // Страница корзины не обновляет счётчик на главной в реальном времени, но при переходе на главную он подтянется через updateCartCount()
+        }
+
+        // Отрисовываем корзину при загрузке
+        document.addEventListener('DOMContentLoaded', renderCart);
+    </script>
+</body>
+</html>
