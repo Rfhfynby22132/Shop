@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>my-shop</title>
+        <style>
+            
+            
+             .center-text{
+            text-align: center;
+        }
+        </style>
+        <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+
+    </head>
+        <body>
+            <!-- Контейнер для уведомлений -->
+            <div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 1000;"></div>
+            <header>
+                <div> МойМагазин</div>
+                <div style="display: inline-block; margin-left: 20px;">
+                    <a href="/craft" style="text-decoration: none; color: inherit;">
+                🛒 <span id="cart-count">0</span>
+                    </a>
+                </div>
+            </header>
+            
+            <button id="Buttonnazat" class="buttons button6">Назад</button>
+            
+            <script>
+            document.getElementById("Buttonnazat").onclick = function() 
+            {
+                window.location.href = "{{url_for('hello_work')}}";
+            };
+            </script>
+
+            <h1 class="center-text">Добро пожаловать в наш магазин!</h1>
+            <!-- Блок фильтрации -->
+            <div class="filter-bar" style="display: flex; justify-content: center; gap: 20px; margin: 20px; flex-wrap: wrap;">
+                <input type="text" id="searchInput" placeholder="🔍 Поиск товара..." style="padding: 8px; width: 250px; border-radius: 5px; border: 1px solid #ccc;">
+            <div>
+                <label>Цена от:</label>
+                <input type="number" id="priceFrom" placeholder="0" style="width: 80px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+            </div>
+            <div>
+                <label>Цена до:</label>
+                <input type="number" id="priceTo" placeholder="1000" style="width: 80px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+            </div>
+                <button id="resetFilter" style="background-color: #6c757d;">Сбросить</button>
+            </div>
+
+            <!--- Карточки товаров -->
+            <div class="catalog">
+                <div class="product-card">
+                <h3>Картофель</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/008/845/118/non_2x/potato-vegetable-isolated-free-png.png" alt="Картофель">
+                <p>Цена: 35 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Морковь</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/045/931/894/non_2x/fresh-organic-carrots-with-green-tops-free-png.png" alt="Морковь">
+                <p>Цена: 24 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Лук репчатый</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/008/845/122/non_2x/onion-vegetable-isolated-free-png.png" alt="Лук">
+                <p>Цена: 20 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Капуста белокочанная</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/029/719/964/non_2x/cabbage-transparent-background-png.png" alt="Капуста">
+                <p>Цена: 50 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Свёкла</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/008/845/132/non_2x/beetroot-vegetable-isolated-free-png.png" alt="Свёкла">
+                <p>Цена: 30 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Огурец</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/008/845/043/non_2x/cucumber-vegetable-isolated-free-png.png" alt="Огурец">
+                <p>Цена: 45 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Помидор</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/008/845/047/non_2x/tomato-fresh-isolated-free-png.png" alt="Помидор">
+                <p>Цена: 60 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Перец болгарский</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/008/845/053/non_2x/bell-pepper-isolated-free-png.png" alt="Перец">
+                <p>Цена: 80 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Брокколи</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/009/663/049/non_2x/broccoli-vegetable-isolated-free-png.png" alt="Брокколи">
+                <p>Цена: 90 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Кабачок</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/008/845/044/non_2x/zucchini-vegetable-isolated-free-png.png" alt="Кабачок">
+                <p>Цена: 55 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Чеснок</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/008/845/128/non_2x/garlic-vegetable-isolated-free-png.png" alt="Чеснок">
+                <p>Цена: 15 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Редис</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/008/845/115/non_2x/radish-vegetable-isolated-free-png.png" alt="Редис">
+                <p>Цена: 30 ₽</p>
+                <button>Купить</button>
+            </div>
+            </div>
+            <script src="{{ url_for('static', filename='script.js') }}"></script>
+        </body>

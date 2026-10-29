@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>my-shop</title>
+        <style>
+            
+            
+             .center-text{
+            text-align: center;
+        }
+        </style>
+        <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+
+    </head>
+        <body>
+            <!-- Контейнер для уведомлений -->
+            <div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 1000;"></div>
+            <header>
+                <div> МойМагазин</div>
+                <div style="display: inline-block; margin-left: 20px;">
+                    <a href="/craft" style="text-decoration: none; color: inherit;">
+                🛒 <span id="cart-count">0</span>
+                    </a>
+                </div>
+            </header>
+            <button id="Buttonnazat" class="buttons button5">Назад</button>
+
+            <script>
+            document.getElementById("Buttonnazat").onclick = function() 
+            {
+                window.location.href = "{{url_for('hello_work')}}";
+            };
+            </script>
+            
+            <h1 class="center-text">Добро пожаловать в наш магазин!</h1>
+            <!-- Блок фильтрации -->
+            <div class="filter-bar" style="display: flex; justify-content: center; gap: 20px; margin: 20px; flex-wrap: wrap;">
+                <input type="text" id="searchInput" placeholder="🔍 Поиск товара..." style="padding: 8px; width: 250px; border-radius: 5px; border: 1px solid #ccc;">
+            <div>
+                <label>Цена от:</label>
+                <input type="number" id="priceFrom" placeholder="0" style="width: 80px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+            </div>
+            <div>
+                <label>Цена до:</label>
+                <input type="number" id="priceTo" placeholder="1000" style="width: 80px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+            </div>
+                <button id="resetFilter" style="background-color: #6c757d;">Сбросить</button>
+            </div>
+
+            <!--- Карточки товаров -->
+            <div class="catalog">
+            <div class="product-card">
+                <h3>Куриная грудка</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/115/non_2x/raw-chicken-breast-isolated-transparent-background-free-png.png" alt="Куриная грудка">
+                <p>Цена: 180 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Куриное бедро</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/122/non_2x/chicken-thigh-raw-isolated-free-png.png" alt="Куриное бедро">
+                <p>Цена: 140 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Куриные крылья</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/110/non_2x/raw-chicken-wings-transparent-free-png.png" alt="Куриные крылья">
+                <p>Цена: 120 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Цыплёнок целиком</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/107/non_2x/whole-raw-chicken-isolated-free-png.png" alt="Цыплёнок">
+                <p>Цена: 350 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Индейка (филе)</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/045/931/963/non_2x/raw-turkey-breast-isolated-free-png.png" alt="Филе индейки">
+                <p>Цена: 320 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Говяжья вырезка</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/140/non_2x/raw-beef-tenderloin-steak-isolated-free-png.png" alt="Говяжья вырезка">
+                <p>Цена: 650 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Говяжий фарш</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/147/non_2x/raw-ground-beef-isolated-free-png.png" alt="Говяжий фарш">
+                <p>Цена: 280 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Стейк Рибай</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/133/non_2x/ribeye-steak-raw-isolated-free-png.png" alt="Стейк Рибай">
+                <p>Цена: 890 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Свиная корейка</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/200/non_2x/pork-loin-raw-isolated-free-png.png" alt="Свиная корейка">
+                <p>Цена: 320 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Свиные рёбрышки</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/205/non_2x/pork-ribs-raw-isolated-free-png.png" alt="Свиные рёбрышки">
+                <p>Цена: 420 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Свиной фарш</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/210/non_2x/raw-ground-pork-isolated-free-png.png" alt="Свиной фарш">
+                <p>Цена: 250 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Баранина (лопатка)</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/188/non_2x/raw-lamb-shoulder-isolated-free-png.png" alt="Баранина лопатка">
+                <p>Цена: 580 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Утка целая</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/296/non_2x/whole-duck-raw-isolated-free-png.png" alt="Утка">
+                <p>Цена: 520 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Гусь целый</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/293/non_2x/whole-goose-raw-isolated-free-png.png" alt="Гусь">
+                <p>Цена: 850 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Перепел</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/299/non_2x/raw-quail-isolated-free-png.png" alt="Перепел">
+                <p>Цена: 180 ₽ (за шт.)</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Кролик (тушка)</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/302/non_2x/whole-rabbit-raw-isolated-free-png.png" alt="Кролик">
+                <p>Цена: 450 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Куриная печень</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/113/non_2x/chicken-liver-raw-isolated-free-png.png" alt="Куриная печень">
+                <p>Цена: 90 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Говяжья печень</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/143/non_2x/beef-liver-raw-isolated-free-png.png" alt="Говяжья печень">
+                <p>Цена: 150 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Сердце куриное</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/119/non_2x/chicken-heart-raw-isolated-free-png.png" alt="Сердце куриное">
+                <p>Цена: 70 ₽</p>
+                <button>Купить</button>
+            </div>
+            <div class="product-card">
+                <h3>Мясной набор (ассорти)</h3>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/572/220/non_2x/meat-assortment-raw-isolated-free-png.png" alt="Мясной набор">
+                <p>Цена: 600 ₽</p>
+                <button>Купить</button>
+            </div>
+            </div>
+            <script src="{{ url_for('static', filename='script.js') }}"></script>
+        </body>

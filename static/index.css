@@ -1,0 +1,366 @@
+.buttons {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.buttonGlava {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #04AA6D;
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-size: 10px;
+}
+
+.buttonGlava:hover{
+    background-color: #04AA6D;
+    color: white;
+    font-size: 10px;
+}
+
+
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #04AA6D;
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-size: 10px;
+}
+
+.button1:hover {
+  background-color: #04AA6D;
+  color: white;
+  font-size: 10px;
+}
+
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #04AA6D;
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-size: 10px;
+}
+
+.button2:hover {
+  background-color: #04AA6D;
+  color: white;
+  font-size: 10px;
+}
+
+.button3 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #04AA6D;
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-size: 10px;
+}
+
+.button3:hover {
+  background-color: #04AA6D;
+  color: white;
+  font-size: 10px;
+}
+
+.button4 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #04AA6D;
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-size: 10px;
+}
+
+.button4:hover {
+  background-color: #04AA6D;
+  color: white;
+  font-size: 10px;
+}
+
+.button5 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #04AA6D;
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-size: 10px;
+}
+
+.button5:hover {
+  background-color: #04AA6D;
+  color: white;
+  font-size: 10px;
+}
+
+
+.button6 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #04AA6D;
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-size: 10px;
+}
+
+.button6:hover {
+  background-color: #04AA6D;
+  color: white;
+  font-size: 10px;
+}
+
+
+
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 6 колонок одинаковой ширины */
+    gap: 30px;              /* расстояние между карточками */
+    justify-items: center; /* центрируем карточку по горизонтали */
+    align-items: stretch; /* выравниваем по высоте */
+    margin-top: 30px;
+}
+
+.button-glav {
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #04AA6D;
+}
+
+/*  Каталог  */
+
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 6 колонок одинаковой ширины */
+    gap: 30px;              /* расстояние между карточками */
+    justify-items: center; /* центрируем карточку по горизонтали */
+    align-items: stretch; /* выравниваем по высоте */
+    margin-top: 30px;
+}
+
+
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 15px;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    border-radius: 10px;
+
+     /* Выравниваем содержимое по вертикали */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+}
+
+
+.product-card img {
+    width: 80%;            /* картинка растягивается по ширине карточки */
+    border-radius: 10px; 
+}
+/*  конец каталога  */
+
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(-45deg, #ff7e5f, #feb47b, #ff6b6b, #c06c84);
+    background-size: 100% 200%;
+    animation: gradientShift 10s ease infinite;
+}
+
+
+/* Стили для тост-уведомления */
+.toast {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-size: 14px;
+    animation: fadeInOut 2s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateX(50px); }
+    10% { opacity: 1; transform: translateX(0); }
+    90% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(50px); }
+}
+
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 15px;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    border-radius: 10px;
+
+     /* Выравниваем содержимое по вертикали */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+}
+
+.product-card p {
+    margin: 5px 0;
+}
+
+
+.product-card img {
+    width: 80%;            /* картинка растягивается по ширине карточки */
+    border-radius: 10px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+/* Эффект при клике */
+.button-clicked {
+    background-color: #0213ff !important;
+    transform: scale(0.95);
+    transition: all 0.1s ease;
+}
+
+#cart-count {
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.filter-bar input, .filter-bar button {
+    font-size: 16px;
+    transition: all 0.2s;
+}
+.filter-bar input:focus {
+    outline: none;
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(40,167,69,0.5);
+}
+
+
+/* ===== СТИЛИ ДЛЯ КОРЗИНЫ ===== */
+.cart-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+.cart-item-info {
+    flex: 2;
+}
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.cart-item-quantity button {
+    background-color: #007bff;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+.cart-item-quantity span {
+    min-width: 30px;
+    text-align: center;
+}
+.cart-item-price {
+    width: 100px;
+    text-align: right;
+}
+.cart-item-remove {
+    background-color: #dc3545;
+    padding: 5px 10px;
+    font-size: 12px;
+    margin-left: 15px;
+}
+.cart-total {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid #28a745;
+}
+.cart-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.btn-clear {
+    background-color: #6c757d;
+}
+.btn-checkout {
+    background-color: #28a745;
+    font-size: 18px;
+    padding: 10px 20px;
+}
+.empty-cart {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: #666;
+}
+@media (max-width: 600px) {
+    .cart-item {
+        flex-wrap: wrap;
+    }
+    .cart-item-price {
+        width: auto;
+        margin-left: auto;
+    }
+}
+
+

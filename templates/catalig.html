@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог - МойМагазин</title>
+    <style>
+            .center-text{
+                text-align: center;
+            }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+
+</head>
+<body>
+    <div class="center-text">МойМагазин</div>
+    <div class="catalog">
+        <div class="product-card">
+            <h3>Овощи</h3>
+            <a href="{{ url_for('vegetables') }}">
+            <img src="https://static.vecteezy.com/system/resources/previews/046/542/943/non_2x/fresh-assortment-of-vegetables-and-greens-free-png.png">
+            </a>
+        </div>
+        <div class="product-card">
+            <h3>Фрукты</h3>
+            <a href="{{ url_for('fruits') }}">
+            <img src="https://static.vecteezy.com/system/resources/previews/055/169/296/non_2x/vibrant-assortment-of-fresh-tropical-fruits-free-png.png">
+            </a>
+        </div>
+        <div class="product-card">
+            <h3>Мясо & Птица</h3>
+            <a href="{{ url_for('meat') }}">
+            <img src="https://static.vecteezy.com/system/resources/previews/034/763/880/non_2x/ai-generated-raw-chicken-meat-free-png.png" >
+            </a>
+        </div>
+        <div class="product-card">
+            <h3>Рыба & Морепродукты</h3>
+            <a href="{{ url_for('hello_work') }}">
+            <img src="" >
+            </a>
+        </div>
+        <div class="product-card">
+            <h3>Молочные продукты</h3>
+            <a href="{{ url_for('hello_work') }}">
+            <img src="https://static.vecteezy.com/system/resources/previews/050/590/571/non_2x/a-variety-of-dairy-products-including-milk-cheese-and-butter-free-png.png" >
+            </a>
+        </div>
+        <div class="product-card">
+            <h3>Хлеб & Выпечка</h3>
+            <a href="{{ url_for('hello_work') }}">
+            <img src="https://static.vecteezy.com/system/resources/previews/025/066/842/non_2x/bread-with-ai-generated-free-png.png" >
+            </a>
+        </div>
+        <div class="product-card">
+            <h3>Напитки</h3>
+            <a href="{{ url_for('hello_work') }}">
+            <img src="https://static.vecteezy.com/system/resources/previews/047/763/433/non_2x/three-colorful-summer-cocktails-with-ice-and-fruit-illustration-free-png.png" >
+            </a>
+        </div>
+        <div class="product-card">
+            <h3>Сладости & Конфеты</h3>
+            <a href="{{ url_for('hello_work') }}">
+            <img src="https://static.vecteezy.com/system/resources/previews/035/675/641/non_2x/ai-generated-assortment-of-chocolate-candies-free-png.png" >
+            </a>
+        </div>
+        <div class="product-card">
+            <h3>Бакалея (крупы, макароны)</h3>
+            <a href="{{ url_for('hello_work') }}">
+            <img src="https://avatars.mds.yandex.net/i?id=776b2fa8f9b96ec409cdaf87dce48ff87020f372-12842885-images-thumbs&n=13" >
+            </a>
+        </div>
+        <div class="product-card">
+            <h3>Замороженные продукты</h3>
+            <a href="{{ url_for('hello_work') }}">
+            <img src="https://png.pngtree.com/png-clipart/20240619/original/pngtree-frozen-vegetables-in-plastic-bags-isolated-on-transparent-background-png-image_15369061.png" >
+            </a>
+        </div>
+        <div class="product-card">
+            <h3>Детское питание</h3>
+            <a href="{{ url_for('hello_work') }}">
+            <img src="https://w7.pngwing.com/pngs/675/242/png-transparent-powdered-milk-baby-food-baby-formula-nestle-milk-food-nutrition-eating.png">
+            </a>
+        </div>
+        <div class="product-card">
+            <h3>Здоровое питание / Диета</h3>
+            <a href="{{ url_for('hello_work') }}">
+            <img src="https://static.vecteezy.com/system/resources/previews/056/106/379/non_2x/top-view-salad-with-chicken-avocado-tomatoes-and-lettuce-free-png.png">
+            </a>
+        </div>
+    </div>
+</body>
+</html>
